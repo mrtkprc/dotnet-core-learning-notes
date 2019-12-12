@@ -1,0 +1,52 @@
+﻿@model ProductsCategoriesViewModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <link href="~/css/bundle.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div id="header">
+        Layout 1
+    </div>
+
+    @RenderSection("TopBanner",false)  
+
+    @await Component.InvokeAsync("Menu")
+
+    <div id="content">
+        @RenderBody()
+    </div>
+
+    <div style="clear:both;"></div>
+
+    @if (IsSectionDefined("BottomBanner"))
+    {
+        @RenderSection("BottomBanner")
+    }
+    else
+    {
+        <div class="banner defaultbanner">
+            Default Banner
+        </div>
+    }
+
+    <div id="footer">
+        Footer
+    </div>
+
+
+
+    <script src="~/js/bundle.min.js"></script>
+
+
+</body>
+</html>

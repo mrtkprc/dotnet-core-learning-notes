@@ -1,0 +1,50 @@
+﻿@model CourseStudentsViewModel
+@{
+    Layout = null;
+}
+
+@*
+    yorum satırları
+    yorum satırları
+    yorum satırları
+*@
+
+@{ 
+    var classname = Model.Students.Count > 2 ? "popular" : null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .popular{
+            color:green;
+            font-weight:700;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="@classname">@Model.Course.Name</h1>
+
+    @if (Model.Students.Count == 0)
+    {
+        <text>Kursa katılımcı yok.</text>
+    }
+    else
+    {
+        <ul>
+            @foreach (var item in Model.Students)
+            {
+                <li>
+                    @item.Name
+                </li>
+            }    
+
+        </ul>
+    }
+
+</body>
+</html>
